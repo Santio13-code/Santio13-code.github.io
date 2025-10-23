@@ -2,11 +2,224 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Santio13 • Página</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Santiago Mora • Portfolio</title>
+  <meta name="description" content="Portfolio de Santiago Mora (Santio13-code) — Desarrollador novato con JS, Java, HTML, CSS, C# y Python." />
+  <meta property="og:title" content="Santiago Mora • Portfolio" />
+  <meta property="og:description" content="Desarrollador novato: JavaScript, Java, HTML, CSS, C#, Python. Aprendiendo Node.js y Blazor." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#0b1220; --card:#111a2e; --soft:#0f1730; --text:#e9eefc; --muted:#a7b1cc; --brand:#6aa5ff; --accent:#00d4a6;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    /* Header */
+    .nav{
+      position: sticky; top:0; z-index:99; backdrop-filter: blur(8px);
+      background: rgba(11,18,32,.7); border-bottom:1px solid #1d2a4b;
+    }
+    .nav .wrap{max-width:1080px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow: var(--shadow)}
+    .brand b{letter-spacing:.3px}
+    .links a{margin-left:16px;font-weight:600}
+    .btn{display:inline-block;background:var(--brand);color:#0b1220;padding:10px 14px;border-radius:10px;font-weight:700}
+    /* Hero */
+    .hero{max-width:1080px;margin:28px auto;padding:24px 16px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    .card{background:linear-gradient(180deg,var(--card),var(--soft));border:1px solid #1d2a4b;border-radius:18px;box-shadow:var(--shadow);padding:22px}
+    .kicker{color:var(--accent);font-weight:700;letter-spacing:.4px}
+    h1{margin:.2rem 0 0;font-size:clamp(28px,4vw,42px)}
+    .muted{color:var(--muted)}
+    .chip{display:inline-flex;gap:8px;align-items:center;background:#0e1630;border:1px solid #25325a;color:#cfe0ff;padding:6px 10px;border-radius:999px;font-size:.92rem;margin:6px 8px 0 0}
+    .hero .aside{display:grid;gap:12px}
+    /* Sections */
+    section{max-width:1080px;margin:12px auto;padding:24px 16px}
+    section h2{margin:0 0 14px;font-size:clamp(22px,3.2vw,30px)}
+    .grid{display:grid;gap:16px}
+    .grid.skills{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+    .badge-row img{height:26px;margin:6px 8px 0 0}
+    .projects{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .project .title{font-weight:800;margin-bottom:8px}
+    .project .meta{font-size:.95rem;color:var(--muted);margin-top:6px}
+    /* Goals */
+    .goals li{margin:8px 0}
+    /* Contact */
+    .contact .list a{display:inline-flex;align-items:center;gap:8px;margin-right:14px}
+    /* Footer */
+    footer{border-top:1px solid #1d2a4b;margin-top:28px}
+    footer .wrap{max-width:1080px;margin:auto;padding:20px 16px;color:#9db2d1;display:flex;justify-content:space-between;gap:12px;font-size:.95rem}
+    /* Responsive */
+    @media (max-width:880px){.hero{grid-template-columns:1fr}}
+    /* Light mode toggle */
+    .toggle{background:#0e1630;border:1px solid #25325a;color:#cfe0ff;border-radius:12px;padding:8px 12px;cursor:pointer}
+    .sr{position:absolute;left:-9999px}
+    /* Optional light theme */
+    .light{--bg:#ffffff;--card:#ffffff;--soft:#f6f8ff;--text:#0f172a;--muted:#5b6b88;--brand:#0d6efd;--accent:#16a34a}
+  </style>
 </head>
 <body>
-  <h1>¡Hola! 😄</h1>
-  <p>Mi sitio en GitHub Pages.</p>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <b>Santiago Mora</b>
+      </div>
+      <nav class="links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto" class="btn">Contacto</a>
+        <button id="mode" class="toggle" aria-pressed="false" title="Cambiar tema">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="card">
+      <div class="kicker">👋 ¡Hola! Soy Santiago Mora</div>
+      <h1>Desarrollador novato • 20 años • 🎓 UTA</h1>
+      <p class="muted">
+        Me apasiona el aprendizaje constante y crear proyectos funcionales que mezclen <b>lógica</b> y <b>diseño</b>.
+        Practico y mejoro a diario con <b>JavaScript</b>, <b>Java</b>, <b>HTML</b>, <b>CSS</b>, <b>C#</b> y <b>Python</b>.
+        Actualmente aprendiendo <b>Node.js</b> y <b>Blazor</b>.
+      </p>
+      <div>
+        <span class="chip">📍 Ambato, EC</span>
+        <span class="chip">🎯 Meta: Frontend Dev</span>
+        <a class="chip" href="#proyectos">🚀 Ver proyectos</a>
+      </div>
+    </div>
+
+    <aside class="aside">
+      <div class="card">
+        <div class="kicker">✨ Frase que me motiva</div>
+        <p style="margin:.4rem 0 0; font-size:1.05rem">“Cada línea de código es un paso más hacia algo que antes no existía.”</p>
+      </div>
+      <div class="card">
+        <div class="kicker">🎯 Próximos objetivos</div>
+        <ul class="goals">
+          <li>Mejorar mi lógica de programación.</li>
+          <li>Crear un proyecto colaborativo con otros devs.</li>
+          <li>Publicar mi primera API con Node.js.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi">
+    <h2>👨‍💻 Sobre mí</h2>
+    <div class="card">
+      <p>
+        Soy estudiante de <b>Ingeniería de Software</b> en la <b>Universidad Técnica de Ambato</b>.
+        Me gusta construir interfaces limpias, accesibles y performantes, y mantener buenas prácticas con Git y GitHub.
+      </p>
+      <p class="muted">Si te interesa colaborar o tienes feedback, ¡escríbeme!</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>🧠 Habilidades</h2>
+    <div class="grid skills">
+      <div class="card">
+        <b>Lenguajes</b>
+        <div class="badge-row">
+          <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black">
+          <img alt="Java" src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white">
+          <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white">
+          <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white">
+          <img alt="C#" src="https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white">
+          <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
+        </div>
+      </div>
+      <div class="card">
+        <b>Herramientas</b>
+        <div class="badge-row">
+          <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white">
+          <img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white">
+          <img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white">
+          <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white">
+          <img alt="Blazor" src="https://img.shields.io/badge/Blazor-5C2D91?logo=blazor&logoColor=white">
+        </div>
+      </div>
+      <div class="card">
+        <b>Actualmente aprendiendo</b>
+        <ul style="margin:.5rem 0 0;padding-left:18px">
+          <li>Node.js (APIs con Express)</li>
+          <li>Blazor (componentes y estado)</li>
+          <li>Buenas prácticas de accesibilidad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <h2>🚀 Proyectos Destacados</h2>
+    <div class="grid projects">
+      <article class="card project">
+        <div class="title">Portfolio Personal</div>
+        <p>Sitio web estático con HTML, CSS y JavaScript.</p>
+        <a class="btn" href="https://Santio13-code.github.io" target="_blank" rel="noopener">Visitar</a>
+        <div class="meta">🌐 GitHub Pages</div>
+      </article>
+
+      <article class="card project">
+        <div class="title">Blazor</div>
+        <p>Proyecto base en Blazor para practicar componentes.</p>
+        <a class="btn" href="https://github.com/Santio13-code/deber-agiles" target="_blank" rel="noopener">Repositorio</a>
+        <div class="meta">🧩 C# • Blazor</div>
+      </article>
+
+      <article class="card project">
+        <div class="title">TowerDefense (Juego)</div>
+        <p>Juego con enfoque en lógica y estructura.</p>
+        <a class="btn" href="https://github.com/Santio13-code/TowerDefense" target="_blank" rel="noopener">Repositorio</a>
+        <div class="meta">🎮 Lógica de juego</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact">
+    <h2>📬 Contacto</h2>
+    <div class="card">
+      <p>¿Colaboramos? ¿Tienes una idea o feedback?</p>
+      <div class="list">
+        <a href="mailto:smora9480@gmail.com">📧 smora9480@gmail.com</a>
+        <a href="https://github.com/Santio13-code" target="_blank" rel="noopener">🐙 GitHub</a>
+        <!-- Agrega LinkedIn cuando lo tengas -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y"></span> Santiago Mora — Santio13-code</span>
+      <span>Hecho con ❤️ y GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    // Año automático
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Toggle claro/oscuro
+    const btn = document.getElementById('mode');
+    const saveMode = localStorage.getItem('mode');
+    if (saveMode === 'light') document.body.classList.add('light');
+    btn.addEventListener('click', ()=>{
+      document.body.classList.toggle('light');
+      const m = document.body.classList.contains('light') ? 'light' : 'dark';
+      localStorage.setItem('mode', m);
+      btn.setAttribute('aria-pressed', m==='light');
+    });
+  </script>
 </body>
 </html>
